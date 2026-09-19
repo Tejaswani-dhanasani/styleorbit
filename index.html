@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore StyleOrbit's curated dress collection by occasion.">
+    <title>StyleOrbit | Find Your Look</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="orbit.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="nav-wrap" aria-label="Main navigation">
+            <a class="brand" href="#home"><span class="brand-mark">✦</span><span>StyleOrbit<small>FASHION DISCOVERY</small></span></a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#occasions">Occasions</a>
+                <a href="#dresses">Collection</a>
+                <a href="#about">About</a>
+            </div>
+            <button class="favorites-link" type="button" data-filter-favorites aria-label="Show saved looks">
+                <span>♡</span> Saved <b id="saved-count">0</b>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">CURATED FOR YOUR MOMENT</p>
+                <h1>Every day deserves<br><em>a beautiful look.</em></h1>
+                <p class="hero-text">Explore a handpicked wardrobe of silhouettes, colors, and moods made for every chapter of your day.</p>
+                <button class="primary-button" type="button" onclick="scrollToDresses()">Explore the collection <span>→</span></button>
+                <div class="hero-stats"><span><strong>57</strong> looks</span><span><strong>06</strong> occasions</span><span><strong>∞</strong> possibilities</span></div>
+            </div>
+            <div class="hero-art" aria-label="Featured fashion looks">
+                <div class="hero-orbit"></div>
+                <div class="hero-tile hero-tile-main"><img src="assets/dresses/traditional/classic-heritage-dress.png" alt="Featured traditional dress"></div>
+                <div class="hero-tile hero-tile-small"><img src="assets/dresses/party/off-shoulder-party-dress.png" alt="Featured party dress"></div>
+                <span class="hero-badge">NEW<br><strong>SEASON</strong></span>
+            </div>
+        </section>
+
+        <section id="occasions" class="occasion-section">
+            <div class="section-heading">
+                <div><p class="eyebrow">SHOP BY MOOD</p><h2>Find your occasion</h2></div>
+                <p>From slow mornings to unforgettable evenings, there is a look waiting for you.</p>
+            </div>
+            <div class="occasion-buttons" role="tablist" aria-label="Dress categories">
+                <button class="occasion-button active" type="button" data-category="all">All looks <span>57</span></button>
+                <button class="occasion-button" type="button" data-category="casual">Casual <span>10</span></button>
+                <button class="occasion-button" type="button" data-category="college">College <span>10</span></button>
+                <button class="occasion-button" type="button" data-category="office">Office <span>9</span></button>
+                <button class="occasion-button" type="button" data-category="party">Party <span>9</span></button>
+                <button class="occasion-button" type="button" data-category="wedding">Wedding <span>9</span></button>
+                <button class="occasion-button" type="button" data-category="traditional">Traditional <span>10</span></button>
+            </div>
+        </section>
+
+        <section id="dresses" class="collection-section">
+            <div class="collection-toolbar">
+                <div><p class="eyebrow">THE FULL EDIT</p><h2>Dress collection <span id="result-count">57 looks</span></h2></div>
+                <label class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="Search by style or occasion..." aria-label="Search dresses"></label>
+            </div>
+            <div id="dress-grid" class="dress-grid" aria-live="polite"></div>
+            <p id="empty-state" class="empty-state" hidden>No looks match that search. Try another style or category.</p>
+        </section>
+
+        <section id="about" class="about-section">
+            <div><p class="eyebrow">A LITTLE ABOUT US</p><h2>Style that feels<br><em>like you.</em></h2></div>
+            <p>StyleOrbit is your visual wardrobe companion. Browse freely, save the looks you love, and discover a style for every version of you.</p>
+        </section>
+    </main>
+
+    <div id="message" class="toast" role="status" aria-live="polite"></div>
+    <div id="quick-view" class="modal" hidden>
+        <div class="modal-backdrop" data-close-modal></div>
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal-close" type="button" data-close-modal aria-label="Close quick view">×</button>
+            <img id="modal-image" src="" alt="">
+            <div class="modal-details"><p id="modal-category" class="eyebrow"></p><h2 id="modal-title"></h2><p id="modal-description"></p><button id="modal-save" class="primary-button" type="button"></button></div>
+        </div>
+    </div>
+    <footer><p>✦ StyleOrbit</p><small>Find your next favorite look.</small></footer>
+    <script src="orbit.js"></script>
+</body>
+
+</html>
